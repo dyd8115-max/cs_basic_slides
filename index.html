@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>여러가지 AI 활용법</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="config.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header>
+  <div class="logo">여러가지 AI 활용법</div>
+  <div class="tabs">
+    <button class="tab on" onclick="go(0)">📑 표지</button>
+    <button class="tab"    onclick="go(1)">🎯 소개</button>
+    <button class="tab"    onclick="go(2)">① 건강</button>
+    <button class="tab"    onclick="go(3)">② 생활비</button>
+    <button class="tab"    onclick="go(4)">③ 네비</button>
+    <button class="tab"    onclick="go(5)">📋 AI 분석</button>
+    <button class="tab"    onclick="go(6)">🏁 마무리</button>
+  </div>
+  <div class="slide-nav">
+    <button class="slide-btn" onclick="slideBy(-1)">‹</button>
+    <span class="slide-dot-row" id="dotRow"></span>
+    <button class="slide-btn" onclick="slideBy(1)">›</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══ SCREEN 0 – Cover ═══ -->
+  <div class="screen intro-type on" id="s0">
+    <div class="cover-screen">
+      <div class="cover-bg-grid"></div>
+
+      <div class="cover-split">
+        <div class="cover-left">
+          <div class="cover-eyebrow">AI 기반 서비스 개발 프로젝트 발표</div>
+          <h1 class="cover-title">여러가지<br><span class="cover-title-accent">AI 활용법</span></h1>
+          <p class="cover-sub">Generative AI를 실생활에 적용한<br>세 가지 스마트 서비스 개발기</p>
+          <div class="cover-meta-strip">
+            <div class="cover-meta-item">
+              <span class="cover-meta-num">3</span>
+              <span class="cover-meta-label">서비스</span>
+            </div>
+            <div class="cover-meta-div"></div>
+            <div class="cover-meta-item">
+              <span class="cover-meta-num">7</span>
+              <span class="cover-meta-label">팀원</span>
+            </div>
+            <div class="cover-meta-div"></div>
+            <div class="cover-meta-item">
+              <span class="cover-meta-num">1</span>
+              <span class="cover-meta-label">LLM</span>
+            </div>
+          </div>
+          <div class="cover-cta-row">
+            <div class="cover-model-badge">Powered by Gemini 2.0 Flash</div>
+            <button class="cover-next" onclick="slideBy(1)">발표 시작 ▸</button>
+          </div>
+        </div>
+        <div class="cover-right">
+          <div class="cover-service-card cv-health">
+            <div class="cover-sc-num">01</div>
+            <div class="cover-sc-icon">🏥</div>
+            <div class="cover-sc-info">
+              <div class="cover-sc-title">AI 건강 분석기</div>
+              <div class="cover-sc-desc">증상 선택 → 질병 추론 · 치료법 안내</div>
+            </div>
+          </div>
+          <div class="cover-service-card cv-expense">
+            <div class="cover-sc-num">02</div>
+            <div class="cover-sc-icon">📊</div>
+            <div class="cover-sc-info">
+              <div class="cover-sc-title">생활비 분석기</div>
+              <div class="cover-sc-desc">지출 시각화 · AI 절약 계획 생성</div>
+            </div>
+          </div>
+          <div class="cover-service-card cv-nav">
+            <div class="cover-sc-num">03</div>
+            <div class="cover-sc-icon">🗺️</div>
+            <div class="cover-sc-info">
+              <div class="cover-sc-title">AI 네비게이션</div>
+              <div class="cover-sc-desc">경로 계산 · 날씨·층수 조건 반영</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 1 – Team ═══ -->
+  <div class="screen intro-type" id="s1">
+    <div class="team-screen">
+      <div class="team-screen-header">
+        <div class="ts-label">팀원 소개</div>
+        <h1 class="ts-title">함께 만든 사람들</h1>
+        <p class="ts-sub">각자의 전문성을 모아 AI 서비스를 완성했습니다</p>
+      </div>
+
+      <div class="team-roles-wrap">
+        <div class="ts-role-group ts-presenter">
+          <div class="ts-role-badge">발표</div>
+          <div class="ts-members-row">
+            <div class="ts-member-card">
+              <div class="ts-avatar" style="--c:#ff6b6b">박</div>
+              <div class="ts-name">박위찬</div>
+            </div>
+          </div>
+        </div>
+        <div class="ts-role-divider"></div>
+        <div class="ts-role-group ts-ppt">
+          <div class="ts-role-badge">PPT 제작</div>
+          <div class="ts-members-row">
+            <div class="ts-member-card">
+              <div class="ts-avatar" style="--c:#7c6ff7">이</div>
+              <div class="ts-name">이용균</div>
+            </div>
+            <div class="ts-member-card">
+              <div class="ts-avatar" style="--c:#a29bfe">장</div>
+              <div class="ts-name">장준수</div>
+            </div>
+          </div>
+        </div>
+        <div class="ts-role-divider"></div>
+        <div class="ts-role-group ts-research">
+          <div class="ts-role-badge">자료 조사</div>
+          <div class="ts-members-row">
+            <div class="ts-member-card">
+              <div class="ts-avatar" style="--c:#4ecdc4">김</div>
+              <div class="ts-name">김지훈</div>
+            </div>
+            <div class="ts-member-card">
+              <div class="ts-avatar" style="--c:#00cec9">배</div>
+              <div class="ts-name">배하은</div>
+            </div>
+            <div class="ts-member-card">
+              <div class="ts-avatar" style="--c:#55efc4">김</div>
+              <div class="ts-name">김주란</div>
+            </div>
+            <div class="ts-member-card">
+              <div class="ts-avatar" style="--c:#81ecec">정</div>
+              <div class="ts-name">정윤재</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="intro-cta" onclick="slideBy(1)">차례 보기 →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 2 – Table of Contents ═══ -->
+  <div class="screen intro-type" id="s2">
+    <div class="toc-screen">
+      <div class="toc-screen-header">
+        <div class="toc-eyebrow">발표 순서</div>
+        <h1 class="toc-main-title">차 례</h1>
+      </div>
+
+      <div class="toc-card-grid">
+        <div class="toc-card toc-c1" onclick="go(1)">
+          <div class="toc-card-num">01</div>
+          <div class="toc-card-body">
+            <div class="toc-card-title">프로젝트 소개</div>
+            <div class="toc-card-desc">서비스 개요 · 공통 AI 기술 스택 · 아키텍처</div>
+          </div>
+          <div class="toc-card-tag">2 slides</div>
+        </div>
+        <div class="toc-card toc-c2" onclick="go(2)">
+          <div class="toc-card-num">02</div>
+          <div class="toc-card-body">
+            <div class="toc-card-title">AI 건강 증상 분석기</div>
+            <div class="toc-card-desc">증상 선택 → AI 질병 추론 · 치료법 안내</div>
+          </div>
+          <div class="toc-card-tag">2 slides</div>
+        </div>
+        <div class="toc-card toc-c3" onclick="go(3)">
+          <div class="toc-card-num">03</div>
+          <div class="toc-card-body">
+            <div class="toc-card-title">AI 생활비 분석기</div>
+            <div class="toc-card-desc">지출 데이터 시각화 · AI 절약 계획 생성</div>
+          </div>
+          <div class="toc-card-tag">2 slides</div>
+        </div>
+        <div class="toc-card toc-c4" onclick="go(4)">
+          <div class="toc-card-num">04</div>
+          <div class="toc-card-body">
+            <div class="toc-card-title">AI 스마트 네비게이션</div>
+            <div class="toc-card-desc">경로 계산 · 날씨·층수 조건 AI 반영</div>
+          </div>
+          <div class="toc-card-tag">2 slides</div>
+        </div>
+        <div class="toc-card toc-c5" onclick="go(5)">
+          <div class="toc-card-num">05</div>
+          <div class="toc-card-body">
+            <div class="toc-card-title">AI 분석 & Ollama</div>
+            <div class="toc-card-desc">AI 장단점 · 비용 문제 · 로컬 LLM 선택 이유</div>
+          </div>
+          <div class="toc-card-tag">2 slides</div>
+        </div>
+        <div class="toc-card toc-c6" onclick="go(6)">
+          <div class="toc-card-num">06</div>
+          <div class="toc-card-body">
+            <div class="toc-card-title">마무리</div>
+            <div class="toc-card-desc">배운 점 · 소감 · Q&A</div>
+          </div>
+          <div class="toc-card-tag">1 slide</div>
+        </div>
+      </div>
+
+      <button class="intro-cta" onclick="go(1)">발표 시작 →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 3 – Project Overview ═══ -->
+  <div class="screen intro-type" id="s3">
+    <div class="overview-screen">
+      <div class="overview-split">
+        <div class="overview-left">
+          <div class="ov-section-label">이 프로젝트의 배경</div>
+          <h2 class="ov-why-title">왜 AI인가?</h2>
+          <p class="ov-why-desc">기존 규칙 기반 앱의 한계를 넘어, 자연어 입력 하나로 건강·재무·위치 등 복잡한 도메인 로직을 처리하는 새로운 패러다임을 구현했습니다.</p>
+          <div class="ov-stats">
+            <div class="ov-stat">
+              <div class="ov-stat-num">3x</div>
+              <div class="ov-stat-label">개발 속도 향상<br>(규칙 코딩 대비)</div>
+            </div>
+            <div class="ov-stat">
+              <div class="ov-stat-num">1개</div>
+              <div class="ov-stat-label">API로<br>3가지 서비스</div>
+            </div>
+            <div class="ov-stat">
+              <div class="ov-stat-num">₩0</div>
+              <div class="ov-stat-label">Ollama 전환 시<br>운영 비용</div>
+            </div>
+          </div>
+          <div class="ov-tech-stack">
+            <div class="ov-tech-tag">Gemini 2.0 Flash</div>
+            <div class="ov-tech-tag">Node.js + Express</div>
+            <div class="ov-tech-tag">Naver Maps API</div>
+            <div class="ov-tech-tag">Chart.js 4</div>
+            <div class="ov-tech-tag">Vanilla JS ESM</div>
+          </div>
+        </div>
+        <div class="overview-right">
+          <div class="ov-service">
+            <div class="ov-service-head">
+              <span class="ov-service-icon">🏥</span>
+              <div>
+                <div class="ov-service-title">AI 건강 증상 분석기</div>
+                <div class="ov-service-sub">Health Symptom Analyzer</div>
+              </div>
+            </div>
+            <div class="ov-service-desc">16가지 증상 선택 + 자유 텍스트 입력 → AI가 가능성 높은 질병 3가지와 각각의 치료법을 안내합니다</div>
+            <div class="ov-service-tags">
+              <span>증상 분석</span><span>질병 추론</span><span>치료법</span><span>경고 감지</span>
+            </div>
+          </div>
+          <div class="ov-service">
+            <div class="ov-service-head">
+              <span class="ov-service-icon">📊</span>
+              <div>
+                <div class="ov-service-title">AI 생활비 분석기</div>
+                <div class="ov-service-sub">Expense Analyzer</div>
+              </div>
+            </div>
+            <div class="ov-service-desc">카테고리별 지출 차트 시각화 + "32만원으로 감량" 자연어 입력 → 즉석에서 절약 계획을 생성합니다</div>
+            <div class="ov-service-tags">
+              <span>데이터 분석</span><span>차트 시각화</span><span>절약 계획</span><span>NLP</span>
+            </div>
+          </div>
+          <div class="ov-service">
+            <div class="ov-service-head">
+              <span class="ov-service-icon">🗺️</span>
+              <div>
+                <div class="ov-service-title">AI 스마트 네비게이션</div>
+                <div class="ov-service-sub">Smart Navigation</div>
+              </div>
+            </div>
+            <div class="ov-service-desc">실제 주소 입력 → Naver Maps 경로 계산 + AI가 날씨·층수 조건을 반영한 추가 소요시간을 산출합니다</div>
+            <div class="ov-service-tags">
+              <span>경로 최적화</span><span>날씨 연동</span><span>층수 산출</span><span>예측 AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="intro-cta" onclick="slideBy(1)">기술 스택 보기 →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 1 – Tech Stack ═══ -->
+  <div class="screen intro-type" id="s1">
+    <div class="intro-screen intro-screen--wide">
+      <div class="intro-num">기술</div>
+      <div class="intro-head">
+        <h1 class="intro-title" style="font-size:26px">공통 핵심 기술 스택</h1>
+        <p class="intro-sub">AI를 중심으로 세 서비스가 공유하는 아키텍처</p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-section">
+          <div class="tech-section-title">🧠 AI 레이어</div>
+          <div class="tech-items">
+            <div class="tech-item">
+              <div class="tech-name">Gemini 2.0 Flash</div>
+              <div class="tech-desc">Google의 최신 경량 LLM — 빠른 응답 속도와 긴 컨텍스트 처리 능력을 저비용으로 제공</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-name">Prompt Engineering</div>
+              <div class="tech-desc">역할(Role) · 도메인 데이터 · 출력 형식을 시스템 프롬프트로 정밀 제어 — 코드 없이 동작 정의</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-name">Model Fallback Chain</div>
+              <div class="tech-desc">할당량 초과(429) 시 Flash → Flash-Lite 자동 전환 — 모델 장애에도 서비스 중단 없이 연속 운영</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-name">Multi-turn Conversation</div>
+              <div class="tech-desc">대화 히스토리 최근 10턴 유지 — 맥락을 기억하는 자연스러운 연속 대화 구현</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-section">
+          <div class="tech-section-title">🔒 보안 & 인프라</div>
+          <div class="tech-items">
+            <div class="tech-item">
+              <div class="tech-name">Express.js 프록시 서버</div>
+              <div class="tech-desc">API 키를 .env에서만 보관 — 브라우저 개발자 도구에 키가 절대 노출되지 않음</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-name">입력 검증 & 화이트리스트</div>
+              <div class="tech-desc">모델명·좌표·파라미터를 서버에서 검증 — Prompt Injection 및 API 남용 원천 차단</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-name">CORS 제한 + 경로 차단</div>
+              <div class="tech-desc">localhost 도메인만 허용, .env·server.js 등 민감 파일은 정적 서빙에서 완전 차단</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-section">
+          <div class="tech-section-title">🛠️ 도메인별 기술</div>
+          <div class="tech-items">
+            <div class="tech-item">
+              <div class="tech-name">Naver Maps & Directions API</div>
+              <div class="tech-desc">지오코딩 + 최적 경로 계산 — OSRM을 폴백으로 설정해 API 키 없이도 동작 가능</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-name">Chart.js 4</div>
+              <div class="tech-desc">막대·원형·꺾은선 차트 실시간 전환 + 감량 계획 오버레이 커스텀 플러그인 구현</div>
+            </div>
+            <div class="tech-item">
+              <div class="tech-name">Vanilla JS ES Modules</div>
+              <div class="tech-desc">webpack·Vite 없이 브라우저 네이티브 import/export 활용 — 빌드 과정 없는 경량 아키텍처</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="intro-cta" onclick="go(2)">서비스 직접 체험하기 →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 2 – Health Intro ═══ -->
+  <div class="screen intro-type" id="s2">
+    <div class="intro-screen">
+      <div class="intro-num">01</div>
+
+      <div class="intro-head">
+        <div class="intro-icon-wrap">🏥</div>
+        <h1 class="intro-title">AI 건강 증상 분석기</h1>
+        <p class="intro-sub">증상을 선택하면 AI가 가능한 질병과 치료법을 분석해드립니다</p>
+      </div>
+
+      <div class="intro-cards">
+        <div class="intro-card">
+          <div class="intro-card-icon">🩺</div>
+          <div class="intro-card-label">Symptom Analysis</div>
+          <div class="intro-card-desc">증상 조합 기반 질병 추론</div>
+        </div>
+        <div class="intro-card highlight">
+          <div class="intro-card-icon">💊</div>
+          <div class="intro-card-label">Treatment Guide</div>
+          <div class="intro-card-desc">질병별 맞춤 치료법 안내</div>
+        </div>
+        <div class="intro-card">
+          <div class="intro-card-icon">⚠️</div>
+          <div class="intro-card-label">Risk Detection</div>
+          <div class="intro-card-desc">즉시 진료 필요 경고 감지</div>
+        </div>
+      </div>
+
+      <div class="intro-flow">
+        <div class="intro-flow-title">AI 활용 흐름</div>
+        <div class="intro-steps">
+          <div class="intro-step">
+            <span class="intro-step-n">1</span>
+            <div>
+              <strong>증상 선택</strong> — 콤보박스에서 해당 증상 체크
+              <span class="intro-step-sub">기침·두통·발열 등 16가지 증상 다중 선택 가능</span>
+            </div>
+          </div>
+          <div class="intro-arrow">▸</div>
+          <div class="intro-step">
+            <span class="intro-step-n">2</span>
+            <div>
+              <strong>AI 분석</strong> — 증상 조합으로 질병 추론
+              <span class="intro-step-sub">가능성 높은 질병 3가지를 순위별로 제시</span>
+            </div>
+          </div>
+          <div class="intro-arrow">▸</div>
+          <div class="intro-step">
+            <span class="intro-step-n">3</span>
+            <div>
+              <strong>치료법 안내</strong> — 질병별 맞춤 관리법
+              <span class="intro-step-sub">자가 치료법 + 병원 방문 권장 시점 제시</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="intro-cta" onclick="slideBy(1)">직접 체험하기 →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 1 – Health Feature ═══ -->
+  <div class="screen" id="s1">
+
+    <div class="panel">
+      <div class="panel-title">AI 건강 증상 분석기</div>
+      <p class="desc" style="font-size:12px;line-height:1.6;flex-shrink:0">
+        증상을 선택하거나 직접 입력하면 AI가 가능한 질병과 치료법을 분석해드립니다.
+        <strong>의료 전문가의 진단을 대체하지 않습니다.</strong>
+      </p>
+      <div class="tags" style="margin-bottom:8px;flex-shrink:0">
+        <span class="tag">증상 분석</span>
+        <span class="tag">질병 추론</span>
+        <span class="tag">치료법 안내</span>
+      </div>
+      <div class="chat-area" id="chat0">
+        <div class="chat-msg ai">🏥 증상을 선택하고 분석하거나, 증상을 직접 설명해보세요!<br>예: "3일째 고열에 목이 많이 아파요"</div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput0" placeholder="증상을 직접 설명하세요..." onkeydown="if(event.key==='Enter')sendChat(0)">
+        <button class="chat-send" onclick="sendChat(0)">↵</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">증상 선택</div>
+      <div class="panel-scroll">
+        <div style="font-size:11px;color:var(--muted);margin-bottom:10px">해당하는 증상을 모두 선택하세요 (다중 선택 가능)</div>
+        <div class="symptom-grid" id="symptomGrid"></div>
+        <div style="margin-top:14px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px">추가 증상 직접 입력 (선택사항)</div>
+          <textarea id="symptomExtra" class="symptom-extra"
+            placeholder="예: 3일째 지속되는 고열, 목이 붓고 삼키기 힘듦..."></textarea>
+        </div>
+      </div>
+      <div class="panel-foot">
+        <button class="btn" onclick="analyzeSymptoms()">AI 분석하기</button>
+      </div>
+    </div>
+
+    <div class="panel result-panel">
+      <div class="panel-title">분석 결과</div>
+      <div id="healthResult" class="health-result">
+        <div class="empty">
+          <div class="empty-icon">🏥</div>
+          증상을 선택하고<br>AI 분석하기를 눌러주세요
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 4 – Expense Intro ═══ -->
+  <div class="screen intro-type" id="s4">
+    <div class="intro-screen">
+      <div class="intro-num">02</div>
+
+      <div class="intro-head">
+        <div class="intro-icon-wrap">📊</div>
+        <h1 class="intro-title">AI 생활비 분석기</h1>
+        <p class="intro-sub">소비 패턴을 분석해 과소비를 잡아내는 AI 개인 재무 코치</p>
+      </div>
+
+      <div class="intro-cards">
+        <div class="intro-card">
+          <div class="intro-card-icon">📈</div>
+          <div class="intro-card-label">Data Analytics</div>
+          <div class="intro-card-desc">카테고리별 소비 패턴 분석</div>
+        </div>
+        <div class="intro-card highlight">
+          <div class="intro-card-icon">🧠</div>
+          <div class="intro-card-label">NLP</div>
+          <div class="intro-card-desc">자연어 목표 금액 이해</div>
+        </div>
+        <div class="intro-card">
+          <div class="intro-card-icon">🎯</div>
+          <div class="intro-card-label">Optimization AI</div>
+          <div class="intro-card-desc">우선순위 기반 절약 계획</div>
+        </div>
+      </div>
+
+      <div class="intro-flow">
+        <div class="intro-flow-title">AI 활용 흐름</div>
+        <div class="intro-steps">
+          <div class="intro-step">
+            <span class="intro-step-n">1</span>
+            <div>
+              <strong>시각화</strong> — 월별 지출 데이터를 카테고리 차트로 표시
+              <span class="intro-step-sub">막대·원형·꺾은선 차트 중 선택 가능</span>
+            </div>
+          </div>
+          <div class="intro-arrow">▸</div>
+          <div class="intro-step">
+            <span class="intro-step-n">2</span>
+            <div>
+              <strong>분석</strong> — AI가 과소비 카테고리 우선순위 파악
+              <span class="intro-step-sub">쇼핑 → 여가 → 식비 순으로 감량 우선 제안</span>
+            </div>
+          </div>
+          <div class="intro-arrow">▸</div>
+          <div class="intro-step">
+            <span class="intro-step-n">3</span>
+            <div>
+              <strong>계획</strong> — 자연어로 목표 입력 시 즉석 절약 계획
+              <span class="intro-step-sub">"32만원으로 감량 계획 짜줘" 입력 후 차트 비교</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="intro-cta" onclick="slideBy(1)">직접 체험하기 →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 5 – Expense Feature ═══ -->
+  <div class="screen" id="s5">
+
+    <div class="panel">
+      <div class="panel-title">AI 생활비 분석기</div>
+      <p class="desc" style="font-size:12px;line-height:1.6;flex-shrink:0">
+        생활비 데이터를 분석해 <strong>과소비 패턴</strong>을 파악하고
+        원하는 감량 목표를 입력하면 즉석에서 절약 계획을 만들어드립니다.
+      </p>
+      <div class="tags" style="margin-bottom:8px;flex-shrink:0">
+        <span class="tag">데이터 분석</span>
+        <span class="tag">시각화</span>
+        <span class="tag">개인화 추천</span>
+      </div>
+      <div class="chat-area" id="chat1">
+        <div class="chat-msg ai">📊 사용자 선택 후 감량 목표를 입력해보세요!<br>예: "32만원으로 감량 계획 짜줘"</div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput1" placeholder="감량 계획 요청..." onkeydown="if(event.key==='Enter')sendChat(1)">
+        <button class="chat-send" onclick="sendChat(1)">↵</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">사용자 선택</div>
+      <div class="person-list">
+        <div class="person-card" id="pc0" onclick="pickPerson(0)">
+          <div class="avatar" style="background:#ff6b6b22;color:#ff6b6b">박</div>
+          <div style="flex:1">
+            <div class="person-name">박위찬</div>
+            <div class="person-sub">이번 달 지출 182만원</div>
+          </div>
+          <span style="color:var(--primary)">›</span>
+        </div>
+        <div class="person-card" id="pc1" onclick="pickPerson(1)">
+          <div class="avatar" style="background:#74b9ff22;color:#74b9ff">배</div>
+          <div style="flex:1">
+            <div class="person-name">배하은</div>
+            <div class="person-sub">이번 달 지출 235만원</div>
+          </div>
+          <span style="color:var(--primary)">›</span>
+        </div>
+        <div class="person-card" id="pc2" onclick="pickPerson(2)">
+          <div class="avatar" style="background:#55efc422;color:#55efc4">장</div>
+          <div style="flex:1">
+            <div class="person-name">장준수</div>
+            <div class="person-sub">이번 달 지출 156만원</div>
+          </div>
+          <span style="color:var(--primary)">›</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel result-panel">
+      <div class="panel-title" id="expTitle">생활비 분석 결과</div>
+      <div id="expEmpty" class="empty" style="flex:1">
+        <div class="empty-icon">📊</div>
+        좌측에서 사용자를 선택하세요
+      </div>
+      <div id="expContent" style="display:none;flex:1;flex-direction:column;min-height:0;">
+        <div class="stat-row" id="statRow"></div>
+        <div class="chart-wrap">
+          <canvas id="expChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 6 – Navigation Intro ═══ -->
+  <div class="screen intro-type" id="s6">
+    <div class="intro-screen">
+      <div class="intro-num">03</div>
+
+      <div class="intro-head">
+        <div class="intro-icon-wrap">🗺️</div>
+        <h1 class="intro-title">AI 스마트 네비게이션</h1>
+        <p class="intro-sub">실시간 날씨·층수 조건을 반영해 소요시간을 정밀 예측하는 AI 경로 안내</p>
+      </div>
+
+      <div class="intro-cards">
+        <div class="intro-card">
+          <div class="intro-card-icon">🛣️</div>
+          <div class="intro-card-label">Route Optimization</div>
+          <div class="intro-card-desc">OSRM 기반 최적 경로 계산</div>
+        </div>
+        <div class="intro-card highlight">
+          <div class="intro-card-icon">🌦️</div>
+          <div class="intro-card-label">Predictive AI</div>
+          <div class="intro-card-desc">날씨 조건별 시간 예측 모델</div>
+        </div>
+        <div class="intro-card">
+          <div class="intro-card-icon">🏢</div>
+          <div class="intro-card-label">Context Modeling</div>
+          <div class="intro-card-desc">층수·엘리베이터 대기 산출</div>
+        </div>
+      </div>
+
+      <div class="intro-flow">
+        <div class="intro-flow-title">AI 활용 흐름</div>
+        <div class="intro-steps">
+          <div class="intro-step">
+            <span class="intro-step-n">1</span>
+            <div>
+              <strong>경로</strong> — 실제 주소 입력 → Naver Maps 지오코딩
+              <span class="intro-step-sub">OSRM 엔진으로 실시간 최적 경로 계산 및 지도 표시</span>
+            </div>
+          </div>
+          <div class="intro-arrow">▸</div>
+          <div class="intro-step">
+            <span class="intro-step-n">2</span>
+            <div>
+              <strong>날씨</strong> — 눈·비·흐림 조건 채팅 입력
+              <span class="intro-step-sub">AI가 우천·적설 상황에 따라 추가 소요시간 산출</span>
+            </div>
+          </div>
+          <div class="intro-arrow">▸</div>
+          <div class="intro-step">
+            <span class="intro-step-n">3</span>
+            <div>
+              <strong>층수</strong> — 출발·도착 층수 입력
+              <span class="intro-step-sub">엘리베이터 대기 시간을 포함한 최종 예상 시간 제시</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="intro-cta" onclick="slideBy(1)">직접 체험하기 →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 7 – Navigation Feature ═══ -->
+  <div class="screen" id="s7">
+
+    <div class="panel">
+      <div class="panel-title">AI 스마트 네비게이션</div>
+      <p class="desc" style="font-size:12px;line-height:1.6;flex-shrink:0">
+        경로 계산 후 <strong>날씨·층수</strong>를 아래에 직접 입력하면
+        AI가 추가 시간을 분석해 예상 시간에 반영합니다.
+      </p>
+      <div class="tags" style="margin-bottom:8px;flex-shrink:0">
+        <span class="tag">경로 최적화</span>
+        <span class="tag">날씨 연동</span>
+        <span class="tag">예측 모델링</span>
+      </div>
+      <div class="chat-area" id="chat2">
+        <div class="chat-msg ai">🗺️ 경로 계산 후 조건을 알려주세요!<br>예: "비가 오고 출발 3층 도착 15층"</div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput2" placeholder="날씨·층수 조건 입력..." onkeydown="if(event.key==='Enter')sendChat(2)">
+        <button class="chat-send" onclick="sendChat(2)">↵</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-title">경로 입력</div>
+      <div class="panel-scroll">
+        <div class="form-group">
+          <label>출발지 주소</label>
+          <div class="addr-input-wrap" onclick="openAddrModal('navFrom')">
+            <input id="navFrom" placeholder="🔍  출발지 주소 검색" readonly style="cursor:pointer">
+            <span class="addr-input-btn">검색</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>도착지 주소</label>
+          <div class="addr-input-wrap" onclick="openAddrModal('navTo')">
+            <input id="navTo" placeholder="🔍  도착지 주소 검색" readonly style="cursor:pointer">
+            <span class="addr-input-btn">검색</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-foot">
+        <button class="btn" onclick="calcRoute()">경로 계산하기</button>
+      </div>
+    </div>
+
+    <div class="panel result-panel" style="padding:0;overflow:hidden">
+      <div class="map-wrap" id="mapWrap">
+        <div id="kakaoMap"></div>
+        <div id="mapPlaceholder" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:13px;background:#07071a;z-index:500">
+          <span style="font-size:44px;opacity:.3">🗺️</span>
+          경로를 계산하면 지도가 표시됩니다
+        </div>
+        <div class="nav-card" id="navCard" style="display:none">
+          <div style="display:flex;align-items:baseline;gap:8px;flex-wrap:wrap">
+            <div class="nav-time" id="navTimeEl">--분</div>
+            <div id="navAlpha" style="font-size:13px;color:var(--yellow);font-weight:600"></div>
+            <div style="font-size:12px;color:var(--muted)">예상 소요시간</div>
+          </div>
+          <div class="nav-sub">
+            <div class="nav-sub-item">🚗 <span id="navDrive">-</span></div>
+            <div class="nav-sub-item">📏 <span id="navDist">-</span></div>
+            <div class="nav-sub-item">🛣️ <span id="navToll"></span></div>
+            <div class="nav-sub-item">⛽ <span id="navFuel"></span></div>
+            <div class="nav-sub-item">🛗 <span id="navElev">-</span></div>
+            <div class="nav-sub-item"><span id="navWIcon">-</span> <span id="navWText">-</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══ SCREEN 11 – AI Pros & Cons ═══ -->
+  <div class="screen intro-type" id="s8">
+    <div class="intro-screen intro-screen--wide">
+      <div class="intro-num">총정리</div>
+      <div class="intro-head">
+        <h1 class="intro-title" style="font-size:26px">AI 도입의 명과 암</h1>
+        <p class="intro-sub">기술은 완벽하지 않다 — 무엇을 얻고 무엇을 포기하는가</p>
+      </div>
+
+      <div class="pros-cons-grid">
+        <div class="pros-col">
+          <div class="pros-cons-title pros">✅ 장점 — AI가 가져다 준 것</div>
+          <div class="pros-cons-list">
+            <div class="pros-item">
+              <span class="pcs-icon">💬</span>
+              <div>
+                <strong>자연어 인터페이스</strong>
+                <div class="pcs-desc">"32만원으로 감량 계획 짜줘" 한 문장으로 복잡한 로직 실행 — 규칙 기반 코드 대비 개발 시간 대폭 단축</div>
+              </div>
+            </div>
+            <div class="pros-item">
+              <span class="pcs-icon">🧩</span>
+              <div>
+                <strong>범용 지능</strong>
+                <div class="pcs-desc">건강·재무·위치 등 전혀 다른 도메인을 하나의 LLM으로 처리 — 전문가 3명 분량의 지식을 API 하나로</div>
+              </div>
+            </div>
+            <div class="pros-item">
+              <span class="pcs-icon">⚡</span>
+              <div>
+                <strong>빠른 프로토타이핑</strong>
+                <div class="pcs-desc">프롬프트 수정만으로 동작 변경 — 새 기능 추가 시 코드가 아닌 언어로 의도를 표현</div>
+              </div>
+            </div>
+            <div class="pros-item">
+              <span class="pcs-icon">🔄</span>
+              <div>
+                <strong>맥락 이해 대화</strong>
+                <div class="pcs-desc">이전 대화를 기억하며 흐름 있는 연속 대화 유지 — 단순 챗봇을 넘어 실질적인 어시스턴트 역할</div>
+              </div>
+            </div>
+            <div class="pros-item">
+              <span class="pcs-icon">🌐</span>
+              <div>
+                <strong>24/7 일관성</strong>
+                <div class="pcs-desc">언제 접속해도 동일한 품질의 응답 — 사람 전문가와 달리 피로 없이 반복 가능</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cons-col">
+          <div class="pros-cons-title cons">❌ 한계 — AI가 아직 못 하는 것</div>
+          <div class="pros-cons-list">
+            <div class="cons-item">
+              <span class="pcs-icon">💸</span>
+              <div>
+                <strong>높은 API 비용</strong>
+                <div class="pcs-desc">GPT-4o는 1M 토큰당 최대 $60 — 트래픽이 늘어나면 월 수십만 원의 청구서가 날아옴</div>
+              </div>
+            </div>
+            <div class="cons-item">
+              <span class="pcs-icon">🎭</span>
+              <div>
+                <strong>환각(Hallucination)</strong>
+                <div class="pcs-desc">틀린 정보를 자신 있게 제시 — 의료·법률 등 고신뢰 도메인에서 검증 없이 사용 시 위험</div>
+              </div>
+            </div>
+            <div class="cons-item">
+              <span class="pcs-icon">📡</span>
+              <div>
+                <strong>인터넷 의존성</strong>
+                <div class="pcs-desc">클라우드 API 장애 시 서비스 전체 중단 — 단일 장애점(SPOF) 문제로 안정성 취약</div>
+              </div>
+            </div>
+            <div class="cons-item">
+              <span class="pcs-icon">🔐</span>
+              <div>
+                <strong>개인정보 유출 리스크</strong>
+                <div class="pcs-desc">사용자 입력 데이터가 외부 AI 서버로 전송 — 민감 정보 처리 시 법적 이슈 발생 가능</div>
+              </div>
+            </div>
+            <div class="cons-item">
+              <span class="pcs-icon">⏳</span>
+              <div>
+                <strong>할당량 제한</strong>
+                <div class="pcs-desc">무료 티어에서 분당 요청 수 초과 시 서비스 중단 — 개발 중 429 오류를 반복 경험함</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="intro-cta" onclick="slideBy(1)">Ollama를 선택한 이유 →</button>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 12 – Why Ollama ═══ -->
+  <div class="screen intro-type" id="s9">
+    <div class="intro-screen intro-screen--wide">
+      <div class="intro-num">결론</div>
+      <div class="intro-head">
+        <h1 class="intro-title" style="font-size:26px">왜 Ollama인가</h1>
+        <p class="intro-sub">클라우드 AI의 한계를 로컬 LLM으로 극복하기 — 비용 $0, 개인정보 100% 보호</p>
+      </div>
+
+      <div class="ollama-layout">
+        <div class="cost-compare">
+          <div class="cost-title">💰 API 비용 비교 (월 100만 토큰 기준, 입출력 합산)</div>
+          <div class="cost-rows">
+            <div class="cost-row">
+              <span class="cost-model">GPT-4o</span>
+              <div class="cost-bar-wrap"><div class="cost-bar" style="width:100%;background:#ff6b6b"></div></div>
+              <span class="cost-price">~₩85,000</span>
+            </div>
+            <div class="cost-row">
+              <span class="cost-model">Claude Sonnet</span>
+              <div class="cost-bar-wrap"><div class="cost-bar" style="width:52%;background:#ffd93d"></div></div>
+              <span class="cost-price">~₩44,000</span>
+            </div>
+            <div class="cost-row">
+              <span class="cost-model">Gemini 2.0 Flash</span>
+              <div class="cost-bar-wrap"><div class="cost-bar" style="width:5%;background:#4ecdc4"></div></div>
+              <span class="cost-price">~₩4,000</span>
+            </div>
+            <div class="cost-row highlight-row">
+              <span class="cost-model">Ollama (로컬)</span>
+              <div class="cost-bar-wrap"><div class="cost-bar" style="width:1%;background:var(--primary)"></div></div>
+              <span class="cost-price">₩0</span>
+            </div>
+          </div>
+          <div style="margin-top:12px;font-size:10px;color:var(--muted);opacity:.6">
+            * 이 프로젝트는 Gemini Free Tier(무료 한도 내)를 사용합니다
+          </div>
+        </div>
+
+        <div class="ollama-reasons">
+          <div class="ollama-reason-title">🦙 Ollama를 선택한 이유</div>
+          <div class="ollama-reason-list">
+            <div class="ollama-reason">
+              <span class="or-icon">💲</span>
+              <div>
+                <strong>완전 무료</strong> — API 요금 없음, 토큰 할당량 없음, 429 오류 없음
+                <div class="or-sub">테스트를 걱정 없이 무한 반복 — 청구서 스트레스 제로</div>
+              </div>
+            </div>
+            <div class="ollama-reason">
+              <span class="or-icon">🔒</span>
+              <div>
+                <strong>완전한 개인정보 보호</strong> — 데이터가 내 PC 밖으로 나가지 않음
+                <div class="or-sub">의료·금융 등 민감 도메인에서 법적 위험 없이 사용 가능</div>
+              </div>
+            </div>
+            <div class="ollama-reason">
+              <span class="or-icon">✈️</span>
+              <div>
+                <strong>오프라인 동작</strong> — 인터넷 없이 로컬에서 완전히 실행
+                <div class="or-sub">클라우드 장애와 무관하게 안정적인 서비스 유지</div>
+              </div>
+            </div>
+            <div class="ollama-reason">
+              <span class="or-icon">📦</span>
+              <div>
+                <strong>다양한 모델 선택</strong> — Llama 3.1, Gemma 3, Mistral 등 자유롭게 교체
+                <div class="or-sub">용도·성능·크기에 따라 최적 모델을 로컬에서 즉시 전환</div>
+              </div>
+            </div>
+            <div class="ollama-reason">
+              <span class="or-icon">🛠️</span>
+              <div>
+                <strong>완전한 커스터마이징</strong> — Modelfile로 시스템 프롬프트 · 온도 영구 설정
+                <div class="or-sub">코드 없이 모델 성격을 원하는 대로 조정 가능</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ollama-caveat">
+          <div class="caveat-title">⚠️ 현실적인 조건</div>
+          <div class="caveat-list">
+            <span class="caveat-item">최소 8GB RAM (8B 모델 기준)</span>
+            <span class="caveat-item">GPU 있으면 응답 속도 대폭 향상</span>
+            <span class="caveat-item">한국어 성능은 클라우드 대비 낮음</span>
+            <span class="caveat-item">최신 지식 반영에 모델 업데이트 필요</span>
+          </div>
+          <div class="caveat-conclusion">
+            결론: 비용·보안이 중요한 프로덕션 환경이라면 Ollama가 최선의 선택.<br>
+            이 프로젝트는 데모용으로 Gemini Free Tier를 활용했지만, 실서비스 전환 시 Ollama를 권장합니다.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SCREEN 13 – Closing ═══ -->
+  <div class="screen intro-type" id="s13">
+    <div class="closing-screen-v2">
+      <div class="closing-bg-grid"></div>
+
+      <div class="closing-split">
+        <div class="closing-left">
+          <div class="closing-eyebrow">발표를 마치며</div>
+          <h1 class="closing-title-v2">감사합니다</h1>
+          <p class="closing-quote">"AI의 진짜 가능성은<br>사용자가 어떤 질문을<br>하느냐에 달려 있다."</p>
+          <div class="closing-stats">
+            <div class="cl-stat">
+              <div class="cl-stat-num">3</div>
+              <div class="cl-stat-label">AI 서비스</div>
+            </div>
+            <div class="cl-stat">
+              <div class="cl-stat-num">7명</div>
+              <div class="cl-stat-label">팀원</div>
+            </div>
+            <div class="cl-stat">
+              <div class="cl-stat-num" style="color:var(--green)">₩0</div>
+              <div class="cl-stat-label">Ollama 비용</div>
+            </div>
+          </div>
+          <button class="closing-home" onclick="go(0)">처음으로 ↩</button>
+        </div>
+        <div class="closing-right">
+          <div class="closing-lessons">
+            <div class="cl-lessons-title">이 프로젝트에서 배운 것</div>
+            <div class="cl-lesson-item">
+              <span class="cl-lesson-num">01</span>
+              <div>
+                <strong>프롬프트 설계가 기능의 절반이다</strong>
+                <p>AI의 동작은 코드가 아닌 자연어로 정의된다. 출력 형식, 계산 공식, 금지 사항을 명시적으로 지시해야 원하는 결과를 얻는다.</p>
+              </div>
+            </div>
+            <div class="cl-lesson-item">
+              <span class="cl-lesson-num">02</span>
+              <div>
+                <strong>API 키 보안은 처음부터 설계해야 한다</strong>
+                <p>브라우저에서 직접 API를 호출하면 키가 노출된다. Express 프록시 서버로 키를 서버 사이드에만 유지해야 한다.</p>
+              </div>
+            </div>
+            <div class="cl-lesson-item">
+              <span class="cl-lesson-num">03</span>
+              <div>
+                <strong>AI는 도구, 판단은 사람이 한다</strong>
+                <p>할루시네이션·비용·개인정보 문제를 직접 경험했다. Ollama 전환은 단순 비용 절감이 아닌 전략적 아키텍처 선택이다.</p>
+              </div>
+            </div>
+          </div>
+          <div class="closing-qa-block">
+            <div class="cl-qa-text">Q &amp; A</div>
+            <div class="cl-qa-sub">질문을 기다립니다</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ══ 주소 검색 모달 ══ -->
+<div id="addrModal" class="addr-modal-overlay" onclick="if(event.target===this)closeAddrModal()">
+  <div class="addr-modal">
+    <div class="addr-modal-head">
+      <div class="addr-modal-title">
+        <span style="font-size:18px">🗺️</span>
+        주소 검색
+      </div>
+      <button class="addr-modal-close" onclick="closeAddrModal()">✕</button>
+    </div>
+    <div class="addr-modal-search">
+      <input id="addrModalInput" class="addr-modal-input"
+             placeholder="도로명, 건물명, 지번 주소 입력"
+             autocomplete="off"
+             oninput="addrModalSearch(this.value)"
+             onkeydown="if(event.key==='Enter')addrModalSearch(this.value)">
+      <button class="addr-modal-search-btn" onclick="addrModalSearch(document.getElementById('addrModalInput').value)">검색</button>
+    </div>
+    <div id="addrModalResults" class="addr-modal-results">
+      <div class="addr-modal-hint">
+        <div class="addr-hint-icon">🔍</div>
+        <div class="addr-hint-text">도로명 주소, 건물명, 지번을 입력하세요</div>
+        <div class="addr-hint-sub">예: 강남구 테헤란로 152 · 신반포자이 · 정자동 178</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
