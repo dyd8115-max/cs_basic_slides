@@ -6,6 +6,8 @@ const NAV_SYSTEM =
 `당신은 AI 스마트 네비게이션 어시스턴트입니다.
 사용자가 날씨, 층수, 보행 거리 등 이동에 영향을 주는 조건을 말하면 현실적인 판단으로 추가 소요시간을 추정하세요.
 
+【중요】 사용자는 채팅으로 조건을 하나씩 추가합니다. 이번 메시지에서 언급된 새 조건에 대한 추가시간만 출력하세요. 이전에 말한 조건은 이미 반영됐으니 중복 계산하지 마세요.
+
 【출력 규칙 — 절대 어기지 말 것】
 1. 추정 근거를 한국어 1-2문장으로 자연스럽게 설명
 2. 응답 마지막 줄에 반드시 [추가시간: X분] 형식만 사용 (X는 정수)
@@ -15,6 +17,7 @@ const NAV_SYSTEM =
 
 let navMap = null, routePolyline = null, mkStart = null, mkEnd = null;
 let navBaseDriveMin = 0;
+let navTotalExtraMin = 0;
 
 /* ── Maps SDK 로드 ── */
 function loadNaverSDK(key) {
@@ -247,6 +250,7 @@ export async function calcRoute() {
     mkEnd   = makeMarker(toLatLng,   '#ff6b6b', '도착');
 
     navBaseDriveMin = driveMin;
+    navTotalExtraMin = 0;
 
     document.getElementById('navTimeEl').textContent  = `${driveMin}분`;
     document.getElementById('navAlpha').textContent   = '+ α';
@@ -294,20 +298,21 @@ export async function handleNavChat(msg, idx) {
 
   if (extraMatch) {
     const extraMin = parseInt(extraMatch[1]);
-    const total = navBaseDriveMin + extraMin;
+    navTotalExtraMin += extraMin;
+    const total = navBaseDriveMin + navTotalExtraMin;
     document.getElementById('navTimeEl').textContent = `${total}분`;
-    document.getElementById('navAlpha').textContent  = extraMin > 0 ? `+${extraMin}분` : '';
+    document.getElementById('navAlpha').textContent  = navTotalExtraMin > 0 ? `+${navTotalExtraMin}분` : '';
 
     // 날씨 아이콘 업데이트
     if (/눈|snow/i.test(msg)) {
       document.getElementById('navWIcon').textContent = '❄️';
-      document.getElementById('navWText').textContent = `+${extraMin}분 (적설)`;
+      document.getElementById('navWText').textContent = `+${navTotalExtraMin}분 누적 (적설)`;
     } else if (/비|rain/i.test(msg)) {
       document.getElementById('navWIcon').textContent = '🌧️';
-      document.getElementById('navWText').textContent = `+${extraMin}분 (우천)`;
+      document.getElementById('navWText').textContent = `+${navTotalExtraMin}분 누적 (우천)`;
     } else if (/흐/i.test(msg)) {
       document.getElementById('navWIcon').textContent = '🌤️';
-      document.getElementById('navWText').textContent = `+${extraMin}분 (흐림)`;
+      document.getElementById('navWText').textContent = `+${navTotalExtraMin}분 누적 (흐림)`;
     }
 
     // 층수 정보 업데이트
