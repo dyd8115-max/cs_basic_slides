@@ -166,8 +166,15 @@ app.get('/health', (_req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`\n🗺️  서버 시작: http://localhost:${PORT}\n`);
-  if (!GEMINI_KEY)     console.warn('⚠️  GEMINI_API_KEY 미설정 — 채팅 기능 비활성');
-  if (!NCP_KEY_ID)     console.warn('⚠️  NCP_API_KEY_ID 미설정 — 주소검색 직접 API 불가');
-  if (GEMINI_KEY && NCP_KEY_ID) console.log('✅  모든 API 키 확인됨\n');
+  const url = `http://localhost:${PORT}`;
+  console.log(`\n✅  서버 시작: ${url}\n`);
+  if (!GEMINI_KEY) console.warn('⚠️  GEMINI_API_KEY 미설정 — 채팅 기능 비활성');
+  if (!NCP_KEY_ID) console.warn('⚠️  NCP_API_KEY_ID 미설정 — 주소검색 직접 API 불가');
+
+  // 브라우저 자동 오픈
+  const { exec } = require('child_process');
+  const cmd = process.platform === 'win32' ? `start ${url}`
+            : process.platform === 'darwin' ? `open ${url}`
+            : `xdg-open ${url}`;
+  exec(cmd);
 });
