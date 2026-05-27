@@ -5,10 +5,29 @@ import { handleNavChat, calcRoute, onMapScreenActivated }        from './navigat
 import { openAddrModal, closeAddrModal, addrModalSearch,
          addrLoadMore, getCachedCoords }                         from './autocomplete.js';
 
+import { html as coverHtml }    from './slides/cover.js';
+import { html as teamHtml }     from './slides/team.js';
+import { html as tocHtml }      from './slides/toc.js';
+import { html as securityHtml } from './slides/security.js';
+import { html as medicalHtml }  from './slides/medical.js';
+import { html as introHtml }    from './slides/intro.js';
+import { html as healthHtml }   from './slides/health.js';
+import { html as expenseHtml }  from './slides/expense.js';
+import { html as navHtml }      from './slides/nav.js';
+import { html as analysisHtml } from './slides/analysis.js';
+import { html as closingHtml }  from './slides/closing.js';
+
+/* ─── 슬라이드 순서: 표지→팀→차례→보안→의료→소개→건강→생활비→네비→분석→마무리 ─── */
+document.querySelector('main').innerHTML =
+  coverHtml + teamHtml + tocHtml +
+  securityHtml + medicalHtml + introHtml +
+  healthHtml + expenseHtml + navHtml +
+  analysisHtml + closingHtml;
+
 /* ─── 탭 → 화면 매핑 ───
-   [표지, 소개(프로젝트), 건강, 생활비, 네비, AI분석, 마무리]
+   [표지, 보안, 의료, 소개, 건강, 생활비, 네비, AI분석, 마무리]
    각 탭이 시작하는 DOM 화면 인덱스 */
-const TAB_SCREENS = [0, 3, 5, 7, 9, 11, 13];
+const TAB_SCREENS = [0, 3, 5, 7, 9, 11, 13, 15, 17];
 
 /* ─── 화면 전환 ─── */
 const screens = document.querySelectorAll('.screen');
@@ -26,7 +45,7 @@ function updateUI() {
   tabs.forEach((t, i) => t.classList.toggle('on', i === tabIdx));
 
   _renderDots();
-  if (currentScreen === 10) onMapScreenActivated();
+  if (currentScreen === 14) onMapScreenActivated();
 }
 
 function _renderDots() {
