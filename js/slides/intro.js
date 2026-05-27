@@ -144,7 +144,7 @@ export const html = `
         </div>
       </div>
 
-      <button class="intro-cta" onclick="go(4)">① 건강 서비스 보기 →</button>
+      <button class="intro-cta" onclick="go(5)">① 건강 서비스 보기 →</button>
     </div>
   </div>
 `;

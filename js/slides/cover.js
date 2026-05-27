@@ -31,8 +31,24 @@ export const html = `
           </div>
         </div>
         <div class="cover-right">
-          <div class="cover-service-card cv-health">
+          <div class="cover-service-card cv-sec">
             <div class="cover-sc-num">01</div>
+            <div class="cover-sc-icon">🛡️</div>
+            <div class="cover-sc-info">
+              <div class="cover-sc-title">AI 보안 기술</div>
+              <div class="cover-sc-desc">IDS · EDR · UEBA · 실제 사례</div>
+            </div>
+          </div>
+          <div class="cover-service-card cv-med">
+            <div class="cover-sc-num">02</div>
+            <div class="cover-sc-icon">🔬</div>
+            <div class="cover-sc-info">
+              <div class="cover-sc-title">AI 의료 기술</div>
+              <div class="cover-sc-desc">컴퓨터 비전 · 디지털 트윈 · 신약 개발</div>
+            </div>
+          </div>
+          <div class="cover-service-card cv-health">
+            <div class="cover-sc-num">03</div>
             <div class="cover-sc-icon">🏥</div>
             <div class="cover-sc-info">
               <div class="cover-sc-title">AI 건강 분석기</div>
@@ -40,7 +56,7 @@ export const html = `
             </div>
           </div>
           <div class="cover-service-card cv-expense">
-            <div class="cover-sc-num">02</div>
+            <div class="cover-sc-num">04</div>
             <div class="cover-sc-icon">📊</div>
             <div class="cover-sc-info">
               <div class="cover-sc-title">생활비 분석기</div>
@@ -48,19 +64,11 @@ export const html = `
             </div>
           </div>
           <div class="cover-service-card cv-nav">
-            <div class="cover-sc-num">03</div>
+            <div class="cover-sc-num">05</div>
             <div class="cover-sc-icon">🗺️</div>
             <div class="cover-sc-info">
               <div class="cover-sc-title">AI 네비게이션</div>
               <div class="cover-sc-desc">경로 계산 · 날씨·층수 조건 반영</div>
-            </div>
-          </div>
-          <div class="cover-service-card cv-sec">
-            <div class="cover-sc-num">04</div>
-            <div class="cover-sc-icon">🛡️</div>
-            <div class="cover-sc-info">
-              <div class="cover-sc-title">AI 보안 기술</div>
-              <div class="cover-sc-desc">IDS · EDR · UEBA · 실제 사례</div>
             </div>
           </div>
         </div>

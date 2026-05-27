@@ -8,6 +8,7 @@ import { openAddrModal, closeAddrModal, addrModalSearch,
 import { html as coverHtml }    from './slides/cover.js';
 import { html as teamHtml }     from './slides/team.js';
 import { html as tocHtml }      from './slides/toc.js';
+import { html as aiBasicsHtml } from './slides/ai-basics.js';
 import { html as securityHtml } from './slides/security.js';
 import { html as medicalHtml }  from './slides/medical.js';
 import { html as introHtml }    from './slides/intro.js';
@@ -17,17 +18,17 @@ import { html as navHtml }      from './slides/nav.js';
 import { html as analysisHtml } from './slides/analysis.js';
 import { html as closingHtml }  from './slides/closing.js';
 
-/* ─── 슬라이드 순서: 표지→팀→차례→보안→의료→소개→건강→생활비→네비→분석→마무리 ─── */
+/* ─── 슬라이드 순서: 표지→팀→차례→AI기초→보안→의료→소개→건강→생활비→네비→분석→마무리 ─── */
 document.querySelector('main').innerHTML =
-  coverHtml + teamHtml + tocHtml +
+  coverHtml + teamHtml + tocHtml + aiBasicsHtml +
   securityHtml + medicalHtml + introHtml +
   healthHtml + expenseHtml + navHtml +
   analysisHtml + closingHtml;
 
 /* ─── 탭 → 화면 매핑 ───
-   [표지, 보안, 의료, 소개, 건강, 생활비, 네비, AI분석, 마무리]
+   [표지, AI기초, 보안, 의료, 소개, 건강, 생활비, 네비, AI분석, 마무리]
    각 탭이 시작하는 DOM 화면 인덱스 */
-const TAB_SCREENS = [0, 3, 5, 7, 9, 11, 13, 15, 17];
+const TAB_SCREENS = [0, 3, 4, 6, 8, 10, 12, 14, 16, 18];
 
 /* ─── 화면 전환 ─── */
 const screens = document.querySelectorAll('.screen');
@@ -45,7 +46,7 @@ function updateUI() {
   tabs.forEach((t, i) => t.classList.toggle('on', i === tabIdx));
 
   _renderDots();
-  if (currentScreen === 14) onMapScreenActivated();
+  if (currentScreen === 15) onMapScreenActivated();
 }
 
 function _renderDots() {
