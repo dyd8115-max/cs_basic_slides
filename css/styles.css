@@ -3202,6 +3202,82 @@ select option { background: var(--surface); }
   line-height: 1.6;
 }
 
+/* ═══ Translation AI Styles ═══ */
+.trans-eyebrow { color: #74b9ff; }
+
+.trans-fv-highlight {
+  background: rgba(116, 185, 255, 0.1);
+  border: 1px solid rgba(116, 185, 255, 0.3);
+}
+
+.trans-fv-highlight .sec-fv-label { color: #74b9ff; }
+
+.trans-tr-rbmt   { border-left: 3px solid #fdcb6e; }
+.trans-tr-smt    { border-left: 3px solid #6c5ce7; }
+.trans-tr-nmt    { border-left: 3px solid #a29bfe; }
+.trans-tr-transformer { border-left: 3px solid #74b9ff; }
+
+.trans-tr-rbmt   .sec-tc-tag { background: rgba(253, 203, 110, 0.15); color: #fdcb6e; }
+.trans-tr-smt    .sec-tc-tag { background: rgba(108, 92, 231, 0.15); color: #6c5ce7; }
+.trans-tr-nmt    .sec-tc-tag { background: rgba(162, 155, 254, 0.15); color: #a29bfe; }
+.trans-tr-transformer .sec-tc-tag { background: rgba(116, 185, 255, 0.15); color: #74b9ff; }
+
+.trans-tag-realtime { background: rgba(116, 185, 255, 0.15); color: #74b9ff; }
+.trans-tag-multilang { background: rgba(85, 239, 196, 0.15); color: #4ecdc4; }
+.trans-tag-quality { background: rgba(162, 155, 254, 0.15); color: #a29bfe; }
+.trans-tag-auto { background: rgba(253, 203, 110, 0.15); color: #fdcb6e; }
+
+.sec-pros-section, .sec-cons-section {
+  flex: 1;
+}
+
+.sec-pros-header, .sec-cons-header {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sec-pros-header { color: #4ecdc4; }
+.sec-cons-header { color: #ff6b6b; }
+
+.sec-pros-items, .sec-cons-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sec-pros-item, .sec-cons-item {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.sec-pros-icon, .sec-cons-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.sec-pros-desc, .sec-cons-desc {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.sec-future-outlook {
+  margin-top: 16px;
+  padding: 12px;
+  background: rgba(116, 185, 255, 0.1);
+  border: 1px solid rgba(116, 185, 255, 0.2);
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #74b9ff;
+}
+
+.sec-future-icon { margin-right: 4px; }
+
 /* TOC 8-card 레이아웃 */
 .toc-last {
   grid-column: 1 / -1;
