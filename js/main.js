@@ -87,6 +87,24 @@ async function sendChat(index) {
   else if (index === 2) await handleNavChat(msg, index);
 }
 
+/* ─── 전체화면 ─── */
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+document.addEventListener('fullscreenchange', () => {
+  const btn = document.getElementById('fsBtn');
+  if (btn) btn.textContent = document.fullscreenElement ? '✕' : '⛶';
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'f' || e.key === 'F') toggleFullscreen();
+});
+
 /* ─── 모달 ESC 닫기 ─── */
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeAddrModal();
@@ -103,6 +121,7 @@ window.openAddrModal   = openAddrModal;
 window.closeAddrModal  = closeAddrModal;
 window.addrModalSearch = addrModalSearch;
 window.addrLoadMore    = addrLoadMore;
+window.toggleFullscreen = toggleFullscreen;
 
 initHealthSymptoms();
 updateUI();

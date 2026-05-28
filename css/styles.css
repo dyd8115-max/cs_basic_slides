@@ -670,6 +670,21 @@ select option { background: var(--surface); }
 
 .slide-btn:hover { border-color: var(--primary); color: var(--primary); }
 
+.fs-btn {
+  margin-left: 10px;
+  width: 30px; height: 30px;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+  flex-shrink: 0;
+}
+.fs-btn:hover { border-color: var(--primary); color: var(--primary); }
+
 .slide-dot-row { display: flex; gap: 5px; align-items: center; }
 
 .slide-dot {
@@ -2174,9 +2189,9 @@ select option { background: var(--surface); }
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 16px 40px 24px;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 40px 8px;
   position: relative;
 }
 
@@ -2200,7 +2215,7 @@ select option { background: var(--surface); }
 }
 
 .toc-main-title {
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 900;
   letter-spacing: -0.5px;
   color: var(--text);
@@ -2211,7 +2226,7 @@ select option { background: var(--surface); }
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 7px;
+  gap: 4px;
   width: 100%;
 }
 
@@ -2219,12 +2234,12 @@ select option { background: var(--surface); }
   border-radius: 10px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,.025);
-  padding: 11px 13px 9px;
+  padding: 6px 11px 5px;
   cursor: pointer;
   transition: all .18s;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   text-align: left;
 }
 
@@ -2234,7 +2249,7 @@ select option { background: var(--surface); }
 }
 
 .toc-card-num {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 900;
   line-height: 1;
 }
