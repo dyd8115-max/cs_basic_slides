@@ -48,7 +48,7 @@ function updateUI() {
   tabs.forEach((t, i) => t.classList.toggle('on', i === tabIdx));
 
   _renderDots();
-  if (currentScreen === 18) onMapScreenActivated();
+  if (currentScreen === 19) onMapScreenActivated();
 }
 
 function _renderDots() {

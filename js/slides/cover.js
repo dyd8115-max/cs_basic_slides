@@ -47,8 +47,24 @@ export const html = `
               <div class="cover-sc-desc">컴퓨터 비전 · 디지털 트윈 · 신약 개발</div>
             </div>
           </div>
-          <div class="cover-service-card cv-health">
+          <div class="cover-service-card cv-trans">
             <div class="cover-sc-num">03</div>
+            <div class="cover-sc-icon">🌐</div>
+            <div class="cover-sc-info">
+              <div class="cover-sc-title">AI 번역 기술</div>
+              <div class="cover-sc-desc">문맥 이해 · Transformer · 서비스 사례</div>
+            </div>
+          </div>
+          <div class="cover-service-card cv-music">
+            <div class="cover-sc-num">04</div>
+            <div class="cover-sc-icon">🎵</div>
+            <div class="cover-sc-info">
+              <div class="cover-sc-title">AI 음악 기술</div>
+              <div class="cover-sc-desc">프롬프트→음악 생성 · 활용 사례</div>
+            </div>
+          </div>
+          <div class="cover-service-card cv-health">
+            <div class="cover-sc-num">05</div>
             <div class="cover-sc-icon">🏥</div>
             <div class="cover-sc-info">
               <div class="cover-sc-title">AI 건강 분석기</div>
@@ -56,7 +72,7 @@ export const html = `
             </div>
           </div>
           <div class="cover-service-card cv-expense">
-            <div class="cover-sc-num">04</div>
+            <div class="cover-sc-num">06</div>
             <div class="cover-sc-icon">📊</div>
             <div class="cover-sc-info">
               <div class="cover-sc-title">생활비 분석기</div>
@@ -64,7 +80,7 @@ export const html = `
             </div>
           </div>
           <div class="cover-service-card cv-nav">
-            <div class="cover-sc-num">05</div>
+            <div class="cover-sc-num">07</div>
             <div class="cover-sc-icon">🗺️</div>
             <div class="cover-sc-info">
               <div class="cover-sc-title">AI 네비게이션</div>

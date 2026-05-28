@@ -1971,18 +1971,21 @@ select option { background: var(--surface); }
   flex: 0 0 290px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 7px;
+  overflow: hidden;
+  justify-content: center;
 }
 
 .cover-service-card {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px 18px;
-  border-radius: 14px;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 12px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,.025);
   transition: transform .2s;
+  flex-shrink: 0;
 }
 
 .cover-service-card:hover { transform: translateX(5px); }
@@ -1995,7 +1998,7 @@ select option { background: var(--surface); }
   flex-shrink: 0;
 }
 
-.cover-sc-icon { font-size: 26px; flex-shrink: 0; }
+.cover-sc-icon { font-size: 20px; flex-shrink: 0; }
 
 .cover-sc-title {
   font-size: 13px;
@@ -2011,6 +2014,8 @@ select option { background: var(--surface); }
 .cv-nav     { border-color: rgba(124,111,247,.3); background: rgba(124,111,247,.06); }
 .cv-sec     { border-color: rgba(225,112,85,.3);  background: rgba(225,112,85,.04); }
 .cv-med     { border-color: rgba(0,184,148,.3);   background: rgba(0,184,148,.04); }
+.cv-trans   { border-color: rgba(74,144,226,.3);  background: rgba(74,144,226,.04); }
+.cv-music   { border-color: rgba(186,104,200,.3); background: rgba(186,104,200,.04); }
 
 /* ═══════════════════════════════════
    TEAM SLIDE – Avatar layout (redesign)
@@ -2165,12 +2170,13 @@ select option { background: var(--surface); }
 .toc-screen {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 22px;
-  padding: 32px 60px;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 40px 24px;
   position: relative;
 }
 
@@ -2185,16 +2191,16 @@ select option { background: var(--surface); }
 .toc-screen-header { position: relative; text-align: center; }
 
 .toc-eyebrow {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .toc-main-title {
-  font-size: 44px;
+  font-size: 32px;
   font-weight: 900;
   letter-spacing: -0.5px;
   color: var(--text);
@@ -2204,47 +2210,46 @@ select option { background: var(--surface); }
 .toc-card-grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
   width: 100%;
-  max-width: 860px;
 }
 
 .toc-card {
-  border-radius: 14px;
+  border-radius: 10px;
   border: 1px solid var(--border);
   background: rgba(255,255,255,.025);
-  padding: 18px 18px 14px;
+  padding: 11px 13px 9px;
   cursor: pointer;
   transition: all .18s;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
   text-align: left;
 }
 
 .toc-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.3);
 }
 
 .toc-card-num {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 900;
   line-height: 1;
 }
 
 .toc-card-title {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
-.toc-card-desc { font-size: 11px; color: var(--muted); line-height: 1.5; }
+.toc-card-desc { font-size: 10px; color: var(--muted); line-height: 1.45; }
 
 .toc-card-tag {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--muted);
   opacity: .5;
   align-self: flex-end;
@@ -3278,12 +3283,12 @@ select option { background: var(--surface); }
 
 .sec-future-icon { margin-right: 4px; }
 
-/* TOC 8-card 레이아웃 */
+/* TOC last card — 4열 그리드에서 자연 배치 */
 .toc-last {
-  grid-column: 1 / -1;
-  max-width: 260px;
-  margin: 0 auto;
-  width: 100%;
+  grid-column: auto;
+  max-width: none;
+  margin: 0;
+  width: auto;
 }
 
 /* ═══════════════════════════════════

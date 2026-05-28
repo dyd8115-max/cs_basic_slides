@@ -97,7 +97,6 @@ export const html = `
           <div class="toc-card-tag">1 slide</div>
         </div>
       </div>
-      </div>
 
       <button class="intro-cta" onclick="go(1)">발표 시작 →</button>
     </div>
